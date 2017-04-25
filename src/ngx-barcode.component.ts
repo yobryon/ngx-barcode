@@ -12,29 +12,30 @@ let jsbarcode = require('jsbarcode');
 export class NgxBarcodeComponent implements OnChanges {
 
   // @Input() elementType: "svg"|"img"|"canvas"="svg";
-  @Input('bc-class') cssClass:string = "barcode"; // this should be done more elegantly
+  @Input('bc-class') cssClass = 'barcode'; // this should be done more elegantly
 
-  @Input('bc-format') format: string = 'CODE128';
-  @Input('bc-line-color') lineColor: string = '#000000';
-  @Input('bc-width') width: number = 2;
-  @Input('bc-height') height: number = 100;
-  @Input('bc-display-value') displayValue: boolean = false;
-  @Input('bc-font-options') fontOptions: string = '';
-  @Input('bc-font') font: string = 'monospace';
-  @Input('bc-text-align') textAlign: string = 'center';
-  @Input('bc-text-position') textPosition: string = 'bottom';
-  @Input('bc-text-margin') textMargin: number = 2;
-  @Input('bc-font-size') fontSize: number = 20;
-  @Input('bc-background') background: string = '#ffffff';
-  @Input('bc-margin') margin: number = 10;
-  @Input('bc-margin-top') marginTop: number = 10;
-  @Input('bc-margin-bottom') marginBottom: number = 10;
-  @Input('bc-margin-left') marginLeft: number = 10;
-  @Input('bc-margin-right') marginRight: number = 10;
-  @Input('bc-valid') valid: ()=>boolean = ()=>true;
-  @Input('bc-value') value: string="";
-  
-  @ViewChild('bcElement') bcElement:ElementRef;
+  @Input('bc-format') format = 'CODE128';
+  @Input('bc-line-color') lineColor = '#000000';
+  @Input('bc-width') width = 2;
+  @Input('bc-height') height = 100;
+  @Input('bc-display-value') displayValue = false;
+  @Input('bc-font-options') fontOptions = '';
+  @Input('bc-font') font = 'monospace';
+  @Input('bc-text-align') textAlign = 'center';
+  @Input('bc-text-position') textPosition = 'bottom';
+  @Input('bc-text-margin') textMargin = 2;
+  @Input('bc-font-size') fontSize = 20;
+  @Input('bc-background') background = '#ffffff';
+  @Input('bc-margin') margin = 10;
+  @Input('bc-margin-top') marginTop = 10;
+  @Input('bc-margin-bottom') marginBottom = 10;
+  @Input('bc-margin-left') marginLeft = 10;
+  @Input('bc-margin-right') marginRight = 10;
+  @Input('bc-value') value = '';
+  @ViewChild('bcElement') bcElement: ElementRef;
+
+  @Input('bc-valid') valid: () => boolean = () => true;
+
 
   get options() {
     return {
@@ -56,19 +57,19 @@ export class NgxBarcodeComponent implements OnChanges {
       marginLeft: this.marginLeft,
       marginRight: this.marginRight,
       valid: this.valid,
-    }
+    };
   }
-  constructor(private renderer:Renderer2) { }
+  constructor(private renderer: Renderer2) { }
 
   ngOnChanges() {
     this.createBarcode();
   }
 
   createBarcode() {
-    if(!this.value) return;
-    let element:SVGElement = this.renderer.createElement("svg","svg") as SVGElement;
+    if (!this.value) { return; };
+    let element: SVGElement = this.renderer.createElement('svg', 'svg') as SVGElement;
 
-    let bc = jsbarcode(element,this.value,this.options);
+    jsbarcode(element, this.value, this.options);
     this.bcElement.nativeElement.innerHTML = element.outerHTML;
   }
 
