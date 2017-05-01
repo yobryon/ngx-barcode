@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: `
   <div fxLayout="row">
     <div fxLayout="column">
-      <md-input-container><input mdInput type="text" placeholder="bc-value" [(ngModel)]="value"></md-input-container>
+      <md-input-container><textarea mdInput placeholder="bc-value" [(ngModel)]="value"></textarea></md-input-container>
       <md-select placeholder="bc-format" [(ngModel)]="format">
         <md-option *ngFor="let code of codeList" [value]="code">{{code}}</md-option>
       </md-select>
@@ -15,6 +15,8 @@ import { Component } from '@angular/core';
       <md-checkbox [(ngModel)]="displayValue">bc-display-value</md-checkbox>
       <md-input-container><input mdInput type="text" placeholder="bc-font-options" [(ngModel)]="fontOptions"></md-input-container>
       <md-input-container><input mdInput type="text" placeholder="bc-font" [(ngModel)]="font"></md-input-container>
+    </div>
+    <div fxLayout="column">
       <md-input-container><input mdInput type="text" placeholder="bc-text-align" [(ngModel)]="textAlign"></md-input-container>
       <md-input-container><input mdInput type="text" placeholder="bc-text-position" [(ngModel)]="textPosition"></md-input-container>
       <md-input-container><input mdInput type="number" placeholder="bc-text-margin" [(ngModel)]="textMargin"></md-input-container>
@@ -26,26 +28,28 @@ import { Component } from '@angular/core';
       <md-input-container><input mdInput type="number" placeholder="bc-margin-left" [(ngModel)]="marginLeft"></md-input-container>
       <md-input-container><input mdInput type="number" placeholder="bc-margin-right" [(ngModel)]="marginRight"></md-input-container>
     </div>
-    <ngx-barcode 
-      [bc-value]="value" 
-      [bc-format]="format"
-      [bc-line-color]="lineColor"
-      [bc-width]="width"
-      [bc-height]="height"
-      [bc-display-value]="displayValue"
-      [bc-font-options]="fontOptions"
-      [bc-font]="font"
-      [bc-text-align]="textAlign"
-      [bc-text-position]="textPosition"
-      [bc-text-margin]="textMargin"
-      [bc-font-size]="fontSize"
-      [bc-background]="background"
-      [bc-margin]="margin"
-      [bc-margin-top]="marginTop"
-      [bc-margin-bottom]="marginBottom"
-      [bc-margin-left]="marginLeft"
-      [bc-margin-right]="marginRight"
-    ></ngx-barcode>
+    <div fxLayout="column">
+      <ngx-barcode *ngFor="let bcValue of values"
+        [bc-value]="bcValue" 
+        [bc-format]="format"
+        [bc-line-color]="lineColor"
+        [bc-width]="width"
+        [bc-height]="height"
+        [bc-display-value]="displayValue"
+        [bc-font-options]="fontOptions"
+        [bc-font]="font"
+        [bc-text-align]="textAlign"
+        [bc-text-position]="textPosition"
+        [bc-text-margin]="textMargin"
+        [bc-font-size]="fontSize"
+        [bc-background]="background"
+        [bc-margin]="margin"
+        [bc-margin-top]="marginTop"
+        [bc-margin-bottom]="marginBottom"
+        [bc-margin-left]="marginLeft"
+        [bc-margin-right]="marginRight"
+      ></ngx-barcode>
+    </div>
   </div>
 
   `,
@@ -71,6 +75,9 @@ export class AppComponent {
   marginLeft = 10;
   marginRight = 10;
 
+  get values(): string[] {
+    return this.value.split('\n');
+  }
   codeList: string[] = [
     '', 'CODE128',
     'CODE128A', 'CODE128B', 'CODE128C',
