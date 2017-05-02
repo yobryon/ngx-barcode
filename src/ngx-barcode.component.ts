@@ -11,7 +11,7 @@ let jsbarcode = require('jsbarcode');
 })
 export class NgxBarcodeComponent implements OnChanges {
 
-  // @Input() elementType: "svg"|"img"|"canvas"="svg";
+  @Input('bc-element-type') elementType: 'svg' | 'img' | 'canvas' = 'svg';
   @Input('bc-class') cssClass = 'barcode'; // this should be done more elegantly
 
   @Input('bc-format') format: '' | 'CODE128' | 'CODE128A' | 'CODE128B' | 'CODE128C' | 'EAN' | 'UPC' | 'EAN8' | 'EAN5' |
@@ -68,10 +68,26 @@ export class NgxBarcodeComponent implements OnChanges {
 
   createBarcode() {
     if (!this.value) { return; };
-    let element: SVGElement = this.renderer.createElement('svg', 'svg') as SVGElement;
+    let element: Element;
+    switch (this.elementType) {
+      case 'img':
+        element = this.renderer.createElement('img');
+        break;
+      case 'canvas':
+        element = this.renderer.createElement('canvas');
+        break;
+      case 'svg':
+      default:
+        element = this.renderer.createElement('svg', 'svg');
+    }
 
     jsbarcode(element, this.value, this.options);
-    this.bcElement.nativeElement.innerHTML = element.outerHTML;
+
+    let nativeElement: Element = this.bcElement.nativeElement;
+    for (let node of <any>nativeElement.childNodes){
+      nativeElement.removeChild(node);
+    }
+    this.bcElement.nativeElement.appendChild(element);
   }
 
 }

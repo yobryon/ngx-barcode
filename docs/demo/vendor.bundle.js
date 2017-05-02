@@ -14664,10 +14664,10 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var isFunction_1 = __webpack_require__(75);
+var isFunction_1 = __webpack_require__(74);
 var Subscription_1 = __webpack_require__(22);
 var Observer_1 = __webpack_require__(102);
-var rxSubscriber_1 = __webpack_require__(73);
+var rxSubscriber_1 = __webpack_require__(72);
 /**
  * Implements the {@link Observer} interface and extends the
  * {@link Subscription} class. While the {@link Observer} is the public API for
@@ -23818,9 +23818,9 @@ BreakPointRegistry.ctorParameters = function () { return [
 
 var isArray_1 = __webpack_require__(111);
 var isObject_1 = __webpack_require__(112);
-var isFunction_1 = __webpack_require__(75);
+var isFunction_1 = __webpack_require__(74);
 var tryCatch_1 = __webpack_require__(113);
-var errorObject_1 = __webpack_require__(74);
+var errorObject_1 = __webpack_require__(73);
 var UnsubscriptionError_1 = __webpack_require__(274);
 /**
  * Represents a disposable resource, such as the execution of an Observable. A
@@ -24444,7 +24444,7 @@ var Subscriber_1 = __webpack_require__(9);
 var Subscription_1 = __webpack_require__(22);
 var ObjectUnsubscribedError_1 = __webpack_require__(110);
 var SubjectSubscription_1 = __webpack_require__(234);
-var rxSubscriber_1 = __webpack_require__(73);
+var rxSubscriber_1 = __webpack_require__(72);
 /**
  * @class SubjectSubscriber<T>
  */
@@ -31058,7 +31058,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var Observable_1 = __webpack_require__(1);
 var ScalarObservable_1 = __webpack_require__(103);
-var EmptyObservable_1 = __webpack_require__(72);
+var EmptyObservable_1 = __webpack_require__(71);
 var isScheduler_1 = __webpack_require__(47);
 /**
  * We need this JSDoc comment for affecting ESDoc.
@@ -52972,168 +52972,6 @@ MaterialModule.ctorParameters = function () { return []; };
 /* 69 */,
 /* 70 */,
 /* 71 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(11);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NgxBarcodeModule; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return NgxBarcodeComponent; });
-
-
-
-var jsbarcode = __webpack_require__(198);
-var NgxBarcodeComponent = (function () {
-    /**
-     * @param {?} renderer
-     */
-    function NgxBarcodeComponent(renderer) {
-        this.renderer = renderer;
-        // @Input() elementType: "svg"|"img"|"canvas"="svg";
-        this.cssClass = 'barcode'; // this should be done more elegantly
-        this.format = 'CODE128';
-        this.lineColor = '#000000';
-        this.width = 2;
-        this.height = 100;
-        this.displayValue = false;
-        this.fontOptions = '';
-        this.font = 'monospace';
-        this.textAlign = 'center';
-        this.textPosition = 'bottom';
-        this.textMargin = 2;
-        this.fontSize = 20;
-        this.background = '#ffffff';
-        this.margin = 10;
-        this.marginTop = 10;
-        this.marginBottom = 10;
-        this.marginLeft = 10;
-        this.marginRight = 10;
-        this.value = '';
-        this.valid = function () { return true; };
-    }
-    Object.defineProperty(NgxBarcodeComponent.prototype, "options", {
-        /**
-         * @return {?}
-         */
-        get: function () {
-            return {
-                format: this.format,
-                lineColor: this.lineColor,
-                width: this.width,
-                height: this.height,
-                displayValue: this.displayValue,
-                fontOptions: this.fontOptions,
-                font: this.font,
-                textAlign: this.textAlign,
-                textPosition: this.textPosition,
-                textMargin: this.textMargin,
-                fontSize: this.fontSize,
-                background: this.background,
-                margin: this.margin,
-                marginTop: this.marginTop,
-                marginBottom: this.marginBottom,
-                marginLeft: this.marginLeft,
-                marginRight: this.marginRight,
-                valid: this.valid,
-            };
-        },
-        enumerable: true,
-        configurable: true
-    });
-    /**
-     * @return {?}
-     */
-    NgxBarcodeComponent.prototype.ngOnChanges = function () {
-        this.createBarcode();
-    };
-    /**
-     * @return {?}
-     */
-    NgxBarcodeComponent.prototype.createBarcode = function () {
-        if (!this.value) {
-            return;
-        }
-        
-        var /** @type {?} */ element = (this.renderer.createElement('svg', 'svg'));
-        jsbarcode(element, this.value, this.options);
-        this.bcElement.nativeElement.innerHTML = element.outerHTML;
-    };
-    return NgxBarcodeComponent;
-}());
-NgxBarcodeComponent.decorators = [
-    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* Component */], args: [{
-                selector: 'ngx-barcode',
-                template: "<div #bcElement [class]=\"cssClass\"></div>",
-                styles: []
-            },] },
-];
-/**
- * @nocollapse
- */
-NgxBarcodeComponent.ctorParameters = function () { return [
-    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* Renderer2 */], },
-]; };
-NgxBarcodeComponent.propDecorators = {
-    'cssClass': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Input */], args: ['bc-class',] },],
-    'format': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Input */], args: ['bc-format',] },],
-    'lineColor': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Input */], args: ['bc-line-color',] },],
-    'width': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Input */], args: ['bc-width',] },],
-    'height': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Input */], args: ['bc-height',] },],
-    'displayValue': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Input */], args: ['bc-display-value',] },],
-    'fontOptions': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Input */], args: ['bc-font-options',] },],
-    'font': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Input */], args: ['bc-font',] },],
-    'textAlign': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Input */], args: ['bc-text-align',] },],
-    'textPosition': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Input */], args: ['bc-text-position',] },],
-    'textMargin': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Input */], args: ['bc-text-margin',] },],
-    'fontSize': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Input */], args: ['bc-font-size',] },],
-    'background': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Input */], args: ['bc-background',] },],
-    'margin': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Input */], args: ['bc-margin',] },],
-    'marginTop': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Input */], args: ['bc-margin-top',] },],
-    'marginBottom': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Input */], args: ['bc-margin-bottom',] },],
-    'marginLeft': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Input */], args: ['bc-margin-left',] },],
-    'marginRight': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Input */], args: ['bc-margin-right',] },],
-    'value': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Input */], args: ['bc-value',] },],
-    'bcElement': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_18" /* ViewChild */], args: ['bcElement',] },],
-    'valid': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Input */], args: ['bc-valid',] },],
-};
-
-var NgxBarcodeModule = (function () {
-    function NgxBarcodeModule() {
-    }
-    /**
-     * @return {?}
-     */
-    NgxBarcodeModule.forRoot = function () {
-        return {
-            ngModule: NgxBarcodeModule,
-            providers: []
-        };
-    };
-    return NgxBarcodeModule;
-}());
-NgxBarcodeModule.decorators = [
-    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* NgModule */], args: [{
-                imports: [
-                    __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */]
-                ],
-                declarations: [
-                    NgxBarcodeComponent,
-                ],
-                exports: [
-                    NgxBarcodeComponent,
-                ]
-            },] },
-];
-/**
- * @nocollapse
- */
-NgxBarcodeModule.ctorParameters = function () { return []; };
-
-
-
-
-/***/ }),
-/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53220,7 +53058,7 @@ exports.EmptyObservable = EmptyObservable;
 //# sourceMappingURL=EmptyObservable.js.map
 
 /***/ }),
-/* 73 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53236,7 +53074,7 @@ exports.$$rxSubscriber = exports.rxSubscriber;
 //# sourceMappingURL=rxSubscriber.js.map
 
 /***/ }),
-/* 74 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53246,7 +53084,7 @@ exports.errorObject = { e: {} };
 //# sourceMappingURL=errorObject.js.map
 
 /***/ }),
-/* 75 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53258,6 +53096,7 @@ exports.isFunction = isFunction;
 //# sourceMappingURL=isFunction.js.map
 
 /***/ }),
+/* 75 */,
 /* 76 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -58074,7 +57913,7 @@ exports.isObject = isObject;
 
 "use strict";
 
-var errorObject_1 = __webpack_require__(74);
+var errorObject_1 = __webpack_require__(73);
 var tryCatchTarget;
 function tryCatcher() {
     try {
@@ -65225,7 +65064,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Observable_1 = __webpack_require__(1);
-var EmptyObservable_1 = __webpack_require__(72);
+var EmptyObservable_1 = __webpack_require__(71);
 var isArray_1 = __webpack_require__(111);
 var subscribeToResult_1 = __webpack_require__(48);
 var OuterSubscriber_1 = __webpack_require__(45);
@@ -65344,8 +65183,8 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var Observable_1 = __webpack_require__(1);
 var tryCatch_1 = __webpack_require__(113);
-var isFunction_1 = __webpack_require__(75);
-var errorObject_1 = __webpack_require__(74);
+var isFunction_1 = __webpack_require__(74);
+var errorObject_1 = __webpack_require__(73);
 var Subscription_1 = __webpack_require__(22);
 var toString = Object.prototype.toString;
 function isNodeStyleEventEmitter(sourceObj) {
@@ -66703,7 +66542,7 @@ exports.MulticastOperator = MulticastOperator;
 
 var ArrayObservable_1 = __webpack_require__(46);
 var ScalarObservable_1 = __webpack_require__(103);
-var EmptyObservable_1 = __webpack_require__(72);
+var EmptyObservable_1 = __webpack_require__(71);
 var concat_1 = __webpack_require__(259);
 var isScheduler_1 = __webpack_require__(47);
 /* tslint:enable:max-line-length */
@@ -67338,7 +67177,7 @@ exports.isPromise = isPromise;
 "use strict";
 
 var Subscriber_1 = __webpack_require__(9);
-var rxSubscriber_1 = __webpack_require__(73);
+var rxSubscriber_1 = __webpack_require__(72);
 var Observer_1 = __webpack_require__(102);
 function toSubscriber(nextOrObserver, error, complete) {
     if (nextOrObserver) {

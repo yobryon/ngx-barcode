@@ -6,6 +6,13 @@ import { Component } from '@angular/core';
   <div fxLayout="row">
     <div fxLayout="column">
       <md-input-container><textarea mdInput placeholder="bc-value" [(ngModel)]="value"></textarea></md-input-container>
+      <br/>
+      <md-select placeholder="bc-element-type" [(ngModel)]="elementType">
+        <md-option value="svg">svg</md-option>
+        <md-option value="img">img</md-option>
+        <md-option value="canvas">canvas</md-option>
+      </md-select>
+      <br/>
       <md-select placeholder="bc-format" [(ngModel)]="format">
         <md-option *ngFor="let code of codeList" [value]="code">{{code}}</md-option>
       </md-select>
@@ -30,6 +37,7 @@ import { Component } from '@angular/core';
     </div>
     <div fxLayout="column">
       <ngx-barcode *ngFor="let bcValue of values"
+        [bc-element-type]="elementType"
         [bc-value]="bcValue" 
         [bc-format]="format"
         [bc-line-color]="lineColor"
@@ -56,6 +64,7 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class AppComponent {
+  elementType = 'svg';
   value = 'someValue12340987';
   format = 'CODE128';
   lineColor = '#000000';
