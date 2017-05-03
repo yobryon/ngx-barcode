@@ -83,11 +83,11 @@ export class NgxBarcodeComponent implements OnChanges {
 
     jsbarcode(element, this.value, this.options);
 
-    let nativeElement: Element = this.bcElement.nativeElement;
-    for (let node of <any>nativeElement.childNodes){
-      nativeElement.removeChild(node);
+    for (let node of this.bcElement.nativeElement.childNodes) {
+      this.renderer.removeChild(this.bcElement.nativeElement, node);
     }
-    this.bcElement.nativeElement.appendChild(element);
+    this.renderer.appendChild(this.bcElement.nativeElement, element);
+
   }
 
 }
