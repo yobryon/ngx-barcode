@@ -38,7 +38,7 @@ import { Component } from '@angular/core';
     <div fxLayout="column">
       <ngx-barcode *ngFor="let bcValue of values"
         [bc-element-type]="elementType"
-        [bc-value]="bcValue" 
+        [bc-value]="bcValue"
         [bc-format]="format"
         [bc-line-color]="lineColor"
         [bc-width]="width"
