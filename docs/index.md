@@ -7,7 +7,7 @@ title: ngx-barcode
 An angular component for Angular 4+ for creating 1-D barcodes based on [Lindell's JsBarcode](https://github.com/lindell/JsBarcode).
 
 ## Demo 
-A simple [demo](demo/)
+Basic [demo](demo/)
 
 ## Features
 - supports all barcode formats provided by JsBarcode
