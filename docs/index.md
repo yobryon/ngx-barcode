@@ -2,6 +2,10 @@
 layout: default
 title: ngx-barcode
 ---
+<div align="center">
+  <img src="https://cdn.rawgit.com/yobryon/ngx-barcode/master/docs/assets/ngx-barcode.svg" width="200px" alt="ngx-barcode">
+</div>
+
 # ngx-barcode
 
 An angular component for Angular 4+ for creating 1-D barcodes based on [Lindell's JsBarcode](https://github.com/lindell/JsBarcode).
