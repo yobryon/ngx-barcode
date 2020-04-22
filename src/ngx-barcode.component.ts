@@ -33,7 +33,7 @@ export class NgxBarcodeComponent implements OnChanges {
   @Input('bc-margin-left') marginLeft = 10;
   @Input('bc-margin-right') marginRight = 10;
   @Input('bc-value') value = '';
-  @ViewChild('bcElement') bcElement: ElementRef;
+  @ViewChild('bcElement', { read: ElementRef }) bcElement: ElementRef;
 
   @Input('bc-valid') valid: () => boolean = () => true;
 
