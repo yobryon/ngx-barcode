@@ -1,15 +1,9 @@
-<div align="center">
-  <img src="https://cdn.rawgit.com/yobryon/ngx-barcode/master/docs/assets/ngx-barcode.svg" width="200px" alt="ngx-barcode">
-  <h1 align="center">ngx-barcode</h1>
-  <p>A barcode component for Angular4+.</p>
-</div>
-
-___
+# ngx-barcode
 
 An angular component for Angular 4+ for creating 1-D barcodes based on [Lindell's JsBarcode](https://github.com/lindell/JsBarcode).
 
 ## Demo 
-Basic [demo](https://yobryon.github.io/ngx-barcode/demo/).
+A simple [demo](https://yobryon.github.io/ngx-barcode/demo/)
 
 ## Features
 - supports all barcode formats provided by JsBarcode
