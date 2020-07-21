@@ -1,4 +1,4 @@
 theme: jekyll-theme-cayman
 markdown: kramdown
-pygments: true
+highlighter: rouge
 permalink: /:title
