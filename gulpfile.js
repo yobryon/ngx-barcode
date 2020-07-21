@@ -116,8 +116,7 @@ gulp.task('clean:build', function () {
   return deleteFolders([buildFolder]);
 });
 
-gulp.task('compile', function () {
-  runSequence(
+gulp.task('compile', gulp.series(
     'clean:dist',
     'copy:source',
     'inline-resources',
@@ -127,16 +126,10 @@ gulp.task('compile', function () {
     'copy:manifest',
     'copy:readme',
     'clean:build',
-    'clean:tmp',
-    function (err) {
-      if (err) {
-        console.log('ERROR:', err.message);
-        deleteFolders([distFolder, tmpFolder, buildFolder]);
-      } else {
-        console.log('Compilation finished succesfully');
-      }
-    });
-});
+    'clean:tmp'
+    )
+);
+
 
 /**
  * Watch for any change in the /src folder and compile files
@@ -145,11 +138,12 @@ gulp.task('watch', function () {
   gulp.watch(`${srcFolder}/**/*`, ['compile']);
 });
 
-gulp.task('clean', ['clean:dist', 'clean:tmp', 'clean:build']);
 
-gulp.task('build', ['clean', 'compile']);
-gulp.task('build:watch', ['build', 'watch']);
-gulp.task('default', ['build:watch']);
+gulp.task('clean', gulp.series('clean:dist', 'clean:tmp', 'clean:build'))
+
+gulp.task('build', gulp.series('clean', 'compile'));
+gulp.task('build:watch', gulp.series('build', 'watch'));
+gulp.task('default', gulp.series('build:watch'));
 
 /**
  * Deletes the specified folder
