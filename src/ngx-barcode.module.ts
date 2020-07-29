@@ -12,7 +12,7 @@ import { NgxBarcodeComponent } from './ngx-barcode.component';
   ]
 })
 export class NgxBarcodeModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<NgxBarcodeModule> {
     return {
       ngModule: NgxBarcodeModule,
       providers: []
