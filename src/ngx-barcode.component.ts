@@ -14,7 +14,7 @@ export class NgxBarcodeComponent implements OnChanges {
   @Input('bc-element-type') elementType: 'svg' | 'img' | 'canvas' = 'svg';
   @Input('bc-class') cssClass = 'barcode'; // this should be done more elegantly
 
-  @Input('bc-format') format: '' | 'CODE128' | 'CODE128A' | 'CODE128B' | 'CODE128C' | 'EAN' | 'UPC' | 'EAN8' | 'EAN5' |
+  @Input('bc-format') format: '' | 'CODE128' | 'CODE128A' | 'CODE128B' | 'CODE128C' | 'EAN' | 'EAN128' | 'UPC' | 'EAN8' | 'EAN5' |
   'EAN2' | 'CODE39' | 'ITF14' | 'MSI' | 'MSI10' | 'MSI11' | 'MSI1010' | 'MSI1110' | 'pharmacode' | 'codabar' = 'CODE128';
   @Input('bc-line-color') lineColor = '#000000';
   @Input('bc-width') width = 2;
@@ -39,12 +39,14 @@ export class NgxBarcodeComponent implements OnChanges {
 
 
   get options() {
+    const ean128 = this.format === `EAN128`;
     return {
-      format: this.format,
+      format: ean128 ? `CODE128` : this.format,
       lineColor: this.lineColor,
       width: this.width,
       height: this.height,
       displayValue: this.displayValue,
+      ean128,
       fontOptions: this.fontOptions,
       font: this.font,
       textAlign: this.textAlign,
