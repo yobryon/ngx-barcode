@@ -15,6 +15,7 @@ Basic [demo](https://yobryon.github.io/ngx-barcode/demo/).
 - supports all barcode formats provided by JsBarcode
   - CODE128
   - EAN
+  - EAN128 (CODE128 with EAN128 enable)
   - CODE39
   - ITF-14
   - MSI
