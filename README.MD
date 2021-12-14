@@ -66,6 +66,29 @@ Once the library is imported, you can use the ngx-barcode component in your Angu
 <ngx-barcode [bc-value]="value" [bc-display-value]="true"></ngx-barcode>
 ```
 
+## Options
+
+| Option | Default value | Type |
+|--------|---------------|------|
+| `bc-format` | `"CODE128"` | `string` |
+| `bc-width` | `2` | `number` |
+| `bc-height` | `100` | `number` |
+| `bc-display-value` | `false` | `Boolean` |
+| `bc-value` | `""` | `string` |
+| `bc-font-options` | `""` | `string` |
+| `bc-font` | `"monospace"` | `string` |
+| `bc-text-align` | `"center"` | `string` |
+| `bc-text-position` | `"bottom"` | `string` |
+| `bc-text-margin` | `2` | `number` |
+| `bc-font-size` | `20` | `number` |
+| `bc-background`  | `"#ffffff"` | `string (CSS color)` |
+| `bc-line-color` | `"#000000"` | `string (CSS color)` |
+| `bc-margin` | `10` | `number` |
+| `bc-margin-top` | `10` | `number` |
+| `bc-margin-bottom` | `10` | `number` |
+| `bc-margin-left` | `10` | `number` |
+| `bc-margin-right` | `10` | `number` |
+
 ## Development
 
 To generate all `*.js`, `*.d.ts` and `*.metadata.json` files:
